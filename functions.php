@@ -507,6 +507,123 @@ add_shortcode('html5_shortcode_demo_2', 'html5_shortcode_demo_2'); // Place [htm
 //     ));
 // }
 
+
+// Include Advanced Custom Fields
+include_once('plugins/advanced-custom-fields/acf.php');
+
+if(function_exists("register_field_group"))
+{
+    register_field_group(array (
+        'id' => 'acf_page-settings',
+        'title' => 'Page Settings',
+        'fields' => array (
+            array (
+                'key' => 'field_58b1cbb25cb62',
+                'label' => 'Title Alignment',
+                'name' => 'page_title_alignment',
+                'type' => 'select',
+                'instructions' => 'Determines the alignment of page titles within their container at tablet and desktop sizes.',
+                'choices' => array (
+                    'col-sm-offset-0' => 'Left',
+                    'col-sm-offset-3' => 'Center',
+                    'col-sm-offset-6' => 'Right',
+                ),
+                'default_value' => 'left',
+                'allow_null' => 0,
+                'multiple' => 0,
+            ),
+            array (
+                'key' => 'field_58b342f36bd4e',
+                'label' => 'Mobile Title Image Alignment',
+                'name' => 'mobile_title_image_alignment',
+                'type' => 'text',
+                'instructions' => 'CSS-style alignment properties',
+                'default_value' => 'left top',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+                'formatting' => 'none',
+                'maxlength' => 20,
+            ),
+            array (
+                'key' => 'field_58b3432b6bd4f',
+                'label' => 'Tablet/Desktop Title Image Alignment',
+                'name' => 'tablet_title_image_alignment',
+                'type' => 'text',
+                'default_value' => 'left top',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+                'formatting' => 'none',
+                'maxlength' => 20,
+            ),
+            array (
+                'key' => 'field_58b34ec6a59b9',
+                'label' => 'Bottom Margin',
+                'name' => 'bottom_margin',
+                'type' => 'true_false',
+                'message' => 'Add space to the bottom of the page container (before the footer).',
+                'default_value' => 1,
+            ),
+        ),
+        'location' => array (
+            array (
+                array (
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'page',
+                    'order_no' => 0,
+                    'group_no' => 0,
+                ),
+            ),
+        ),
+        'options' => array (
+            'position' => 'normal',
+            'layout' => 'no_box',
+            'hide_on_screen' => array (
+            ),
+        ),
+        'menu_order' => 0,
+    ));
+    register_field_group(array (
+        'id' => 'acf_support-page-intro',
+        'title' => 'Support Page Intro',
+        'fields' => array (
+            array (
+                'key' => 'field_58b3403e6f1bb',
+                'label' => 'Support Page Intro',
+                'name' => 'support_page_intro',
+                'type' => 'textarea',
+                'default_value' => '',
+                'placeholder' => '',
+                'maxlength' => '',
+                'rows' => '',
+                'formatting' => 'html',
+            ),
+        ),
+        'location' => array (
+            array (
+                array (
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'template-page-support.php',
+                    'order_no' => 0,
+                    'group_no' => 0,
+                ),
+            ),
+        ),
+        'options' => array (
+            'position' => 'acf_after_title',
+            'layout' => 'no_box',
+            'hide_on_screen' => array (
+            ),
+        ),
+        'menu_order' => 0,
+    ));
+}
+
+
+
 /*------------------------------------*\
 	ShortCode Functions
 \*------------------------------------*/
