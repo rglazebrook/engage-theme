@@ -1,0 +1,33 @@
+
+// Colors
+$orange: #F6A704;
+$brown: #6A6057;
+$brownGray: #6a6057;
+$green: #76BD1D;
+$tan: #DDD9D6;
+$grayLight: #e8e6e5;
+$grayMedium: #8c847d;
+$grayMenu: #e0dcd9;
+
+// Setting bootstrap colors.
+$brand-primary: $green;
+$brand-success: $green;
+$brand-info: $orange;
+
+// Fonts
+$bodyFont: 'Aaux Next', sans-serif;
+$headlineFont: 'DK Bintag', sans-serif;
+$font-family-sans-serif: $bodyFont;
+$headings-font-family: $headlineFont;
+$icon-font-path: 'fonts/';
+$fa-font-path: 'fonts/';
+
+// Other bootstrap overrides.
+$border-radius-base: 0;
+$btn-border-radius-base: 0;
+$btn-border-radius-large: 0;
+$btn-border-radius-small: 0;
+
+$btn-primary-color: $green;
+$btn-primary-bg: rgba(255,255,255,0);
+$btn-primary-border: $green;

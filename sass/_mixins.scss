@@ -1,0 +1,44 @@
+
+@mixin bp($points) {
+	@each $point in $points {
+		@if $point == desktop {
+			@media (min-width: $screen-md-min) { @content; }
+		}
+		@else if $point == tablet {
+			@media (min-width: $screen-sm-min) { @content; }
+		}
+		@else if $point == phone {
+			@media (max-width: $screen-xs-max)  { @content; }
+		}
+		@else {
+			@media (min-width: $point) { @content; }
+		}
+	}
+}
+
+// A generic way of doing image on column at mobile, on bg of container at tablet+.
+// This seems to be prevalent in the design.
+@mixin desktop-container-mobile-col-bg($imageUrl: inherit, $bgColor: #fff, $bgPositionDesktop: left top, $bgPositionMobile: left top) {
+	background-color: $bgColor;
+	background-repeat: no-repeat;
+	background-position: $bgPositionDesktop;
+	background-size: cover;
+
+	@include bp(tablet) {
+		background-image: $imageUrl;
+	}
+
+	[class*=mobile-image] {
+		background-repeat: no-repeat;
+		background-position: $bgPositionMobile;
+		background-size: cover;
+		background-image: $imageUrl;
+		padding-bottom: 150%;
+
+		@include bp(tablet) {
+			background: transparent;
+			padding-bottom: 0;
+		}
+	}
+
+}

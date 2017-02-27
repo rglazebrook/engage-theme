@@ -1,0 +1,102 @@
+// Styles specific to the homepage.
+
+.home {
+
+	// Our Approach section.
+	.our-approach {
+		@include desktop-container-mobile-col-bg(url('img/bg-homepage-our-approach.jpg')); 
+
+		text-align: center;
+
+		@include bp(tablet) {
+			text-align: right;
+		}
+
+		.our-approach-text {
+			padding-top: 40px;
+			padding-bottom: 20px;
+
+			@include bp(tablet) {
+				padding-top: 100px;
+				min-height: 615px;
+			}
+			@include bp(desktop) {
+				padding-top: 250px;
+				min-height: 915px;
+			}
+		}
+	}
+
+	// Our Services section.
+	.services {
+		
+		#children-services {
+			@include desktop-container-mobile-col-bg(url('img/bg-homepage-child-services.jpg'), $bgPositionDesktop: top right); 
+		}
+		#adult-services {
+			@include desktop-container-mobile-col-bg(url('img/bg-homepage-adult-services.jpg'), $bgPositionDesktop: top right); 
+		}
+
+		.services-text {
+			padding-top: 40px;
+			padding-bottom: 20px;
+
+			@include bp(tablet) {
+				padding-top: 100px;
+				min-height: 700px;
+			}
+			@include bp(desktop) {
+				padding-top: 175px;
+				min-height: 1100px;
+			}
+
+			.btn {
+				margin-top: 10px;
+
+				@include bp(tablet) {
+					margin-top: 20px;
+				}
+			}
+
+		}
+	}
+
+	// Support Us section.
+	.support {
+		background: $brownGray;
+		color: #fff;
+
+		h2 {
+			color: $orange;
+		}
+	}
+
+	// Our Roots sectoin.
+	.roots {
+		background: $green;
+		color: $brownGray;
+
+		h2 {
+			color: #fff;
+		}
+	}
+
+	.support,
+	.roots {
+		padding: 50px 0;
+
+		h2 {
+			margin-top: 0;
+		}
+
+		p {
+			margin: 20px 0 0;
+		}
+
+		.btn {
+			margin-top: 5px;
+		}
+	}
+
+}
+

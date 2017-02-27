@@ -1,0 +1,67 @@
+// The navigation squares that sometimes act like accordion items and sometimes act like tabs.
+// Sometimes applied to nav-tabs, so we need to eliminate some of their styles as well.
+// We'll use flexbox here to simplify row/column setups.
+
+.nav.nav-squares {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+
+	border: 0px none;
+
+	li {
+		display: flex;
+		flex: 1 0 26%; // Enough to form 3 columns (even with margins), but not 4.
+		background: $brownGray;
+		vertical-align: middle;
+		transition: all 250ms ease-in-out;
+		text-align: center;
+
+		float: none;
+		margin: 0px;
+
+		// On pages, we want a little more space around the tabs.
+		.page & {
+			margin: 1px;
+		}
+
+		a {
+			flex: 1 1 auto;
+			display: block;
+			text-transform: uppercase;
+			text-align: center;
+			padding: 20px;
+			color: $orange;
+			transition: all 250ms ease-in-out;
+			background: transparent !important;
+
+			border: 0px none;
+			margin: auto;
+			line-height: inherit;
+
+			&:hover,
+			&:focus,
+			&:active {
+				color: #fff;
+			}
+
+		}
+
+		&.active,
+		&.current-menu-item,
+		&:hover {
+			background: $green;
+
+			a {
+				color: #fff;
+
+				&:hover,
+				&:focus, 
+				&:active {
+					border: 0px none;
+				}
+			}
+		}
+	}
+
+}

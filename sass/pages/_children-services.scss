@@ -1,0 +1,25 @@
+// Children Services styles.
+// For now, I'm handling BG images in here. I'm toying with the idea of putting the image in WP and then using JS to rework it.
+
+.page.children-services {
+
+	// Our full width containers all have big bg images.
+	.full-width {
+		@include bp(tablet) {
+			padding-top: 100px;
+			min-height: 800px
+		}
+		@include bp(desktop) {
+			min-height: 1000px;
+		}
+
+		ul {
+			margin: 0.75em 0 2em;
+		}
+	}
+
+	.bg-clinic {
+		@include desktop-container-mobile-col-bg( url('img/bg-children-clinic.jpg') );
+	}
+
+}

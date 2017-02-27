@@ -1,0 +1,63 @@
+// Pages.
+
+.page {
+
+	main {
+		overflow: hidden; // helping with some overflow-x problems.
+
+		&.bottom-margin {
+			margin-bottom: 40px;
+
+			@include bp(tablet) {
+				margin-bottom: 75px;
+			}			
+		}
+	}
+
+	// The title area. Image above, title below on mobile, title over image (with various alignments) on tablet+.
+	.page-title {
+		@include desktop-container-mobile-col-bg;
+		
+		margin-bottom: 40px;
+
+		// We'll use a mobile BP here since it's an important tag.
+		@include bp(phone) {
+			background-image: none !important;
+		}
+
+		@include bp(tablet) {
+			margin-bottom: 75px;
+			padding: 150px 0;
+
+			// Normally I don't like nesting in bp's but these were tiny. :)
+			.col-sm-offset-3 {
+				text-align: center;
+			}
+			.col-sm-offset-6 {
+				text-align: right;
+			}			
+		}
+
+		h1 {
+			margin: 0;
+		}
+
+		.mobile-image {
+			padding-bottom: 75%;
+			margin-bottom: 40px;
+		}
+	}
+
+	.nav-squares {
+		margin-top: 75px;
+		margin-bottom: 75px;
+	}
+
+	.panel-group {
+		margin-top: 40px;
+		margin-bottom: 2px;
+	}
+
+
+
+}

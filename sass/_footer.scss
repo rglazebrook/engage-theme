@@ -1,0 +1,132 @@
+footer.footer {
+	background: #fff url('img/bg-footer.jpg') no-repeat center;
+	background-size: cover;
+	color: $brownGray;
+
+	.footer-services {
+		[class*='col-'] {
+			overflow: hidden;
+			padding-top: 40px;
+			padding-bottom: 40px;
+		}
+	}
+
+	.logo-img {
+		display: inline-block;
+		width: 60%;
+
+		@include bp(tablet) {
+			width: 50%;
+		}
+	}
+
+	.menu {
+		margin: 0;
+
+		li {
+			display: inline-block;
+		}
+	}
+
+	.contact {
+		padding-top: 40px;
+		padding-bottom: 40px;
+
+		@include bp(tablet) {
+			padding-top: 60px;
+			padding-bottom: 60px;
+		}
+	}
+
+	.contact-form {
+		font-size: 14px;
+
+		@include bp(tablet) {
+			font-size: 16px;
+		}
+
+		.control-label {
+			font-weight: 400;
+			text-align: left;
+
+			@include bp(tablet) {
+				text-align: center;
+			}
+		}
+
+		.radio {
+			@include bp(phone) {
+				margin-left: 20px;
+			}
+		}
+	}
+
+	[href*="tel:"] {
+		display: block;
+		color: $orange;
+		font-weight: 900;
+		font-family: $bodyFont;
+		margin: 1em auto 0.5em;
+	}
+
+	.email-form {
+		input {
+			width: 55%;
+			margin: auto;
+		}
+	}
+
+	.footer-links {
+		margin-top: 25px;
+		font-size: 1.4rem;
+		line-height: 2;
+
+		@include bp(tablet) {
+			margin-top: 50px;
+			font-size: 1.6rem;
+		}
+
+		li {
+			margin-left: 15px;
+
+			&:first-child {
+				margin-left: 0;
+			}
+		}
+
+		a {
+			color: $brownGray;
+			text-transform: uppercase;
+		}
+	}
+
+	.social-bar {
+		background-color: $brownGray;
+		text-align: center;
+		padding: 25px 0;
+
+		li {
+			margin-left: 10px;
+
+			&:first-child {
+				margin-left: 0;
+			}
+		}
+
+		a {
+			color: $orange;
+			display: block;
+			padding: 5px 0;
+			width: 32px;
+			font-size: 20px;
+			line-height: 1;
+			border: 1px solid $orange;
+
+			@include bp(tablet) {
+				padding: 6px 0;
+				width: 40px;
+				font-size: 26px;
+			}
+		}
+	}
+}

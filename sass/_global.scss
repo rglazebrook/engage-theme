@@ -1,0 +1,152 @@
+*,
+*:after,
+*:before {
+	-webkit-font-smoothing:antialiased;
+	font-smoothing:antialiased;
+	text-rendering:optimizeLegibility;
+}
+
+html {
+	font-size:62.5%;
+}
+
+body {
+	font-size: 1.6rem;
+	font-weight: 300;
+
+	@include bp(tablet) {
+		font-size: 1.8rem;
+	}
+}
+
+// Header sizes.
+h1,
+.h1 {
+	@include bp(tablet) {
+		font-size: $font-size-base * 4;
+	}
+}
+h2,
+.h2 {
+	@include bp(tablet) {
+		font-size: $font-size-base * 3;
+	}
+}
+
+// .clear {
+//     *zoom:1;
+
+// 	&:before,
+// 	&:after {
+// 	    content:' ';
+// 	    display:table;
+// 	}
+
+// 	&:after {
+// 	    clear:both;
+// 	}
+// }
+img {
+	max-width:100%;
+	vertical-align:bottom;
+}
+a {
+	text-decoration:none;
+
+	&:focus,
+	&:hover,
+	&:active {
+		outline:0;
+	}
+}
+
+// Overrides for form styles.
+input,
+input.form-control,
+textarea.form-control {
+	border: 0px none !important;
+	box-shadow: none !important;
+	outline: 1px solid rgba($green, 0.1);
+	transition: outline 250ms ease-in-out;
+
+	&:focus {
+		outline: 1px solid $green;
+	}
+}
+
+// Helper classes for colors.
+.text-green {
+	color: $green;
+}
+.text-orange {
+	color: $orange;
+}
+.text-white {
+	color: #fff;
+}
+.bg-green {
+	background-color: $green;
+}
+.bg-brown {
+	background-color: $brownGray;
+}
+.link-green {
+	a {
+		color: $green;
+	}
+}
+.link-orange {
+	a {
+		color: $orange;
+	}
+}
+
+// Making bp-specific alignment classes similar to what Bootstrap 4 does.
+// E.g. .text-center-tablet, .text-right-phone, etc
+@each $bp in phone, tablet, desktop {
+	@each $align in left, center, right {
+		.text-#{$align}-#{$bp} {
+			@include bp($bp) {
+				text-align: #{$align};
+			}
+		}
+	}
+}
+
+// "Display" style headers are thin and in the body font. This is similar to Bootstrap 4's treatment.
+[class*=display-] {
+	font-family: $bodyFont;
+	font-weight: 300;
+}
+
+// Some button overrides.
+.btn {
+	font-family: $headlineFont;
+	text-transform: uppercase;
+	border-width: 2px;
+	font-size: 18px;
+	padding: 5px 10px;
+
+	@include bp(tablet) {
+		font-size: 20px;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		border-color: inherit;
+	}
+
+	// Didn't exist. Needed it.
+	&.btn-inverse {
+		color: #fff;
+		border-color: #fff;
+	}
+}
+
+// Makes a full-width element even if it was within a container.
+.full-width {
+	width: 100vw;
+	margin-left: 50%;
+	transform: translateX(-50%);
+}

@@ -1,0 +1,39 @@
+// Styles for lists. Seemed like there were a lot of them.
+
+ul,
+ol {
+
+	margin: 1em 0;
+
+	&.list-arrows {
+		list-style: none;
+		margin-left: 0;
+		padding: 0;
+
+		li {
+			@extend .fa-angle-right;
+
+			&:before {
+				@extend .fa;
+				color: $grayMedium;
+				margin-right: 5px;
+			}
+		}
+	}
+
+	&.list-dividers {
+		display: inline-block;
+		
+		li {
+			border-top: 1px solid $grayMedium;
+
+			&:first-child {
+				border-top: 0px none;
+			}
+		}
+	}
+
+	&.list-bold {
+		font-weight: 900;
+	}
+}

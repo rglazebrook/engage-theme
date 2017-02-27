@@ -1,0 +1,37 @@
+/*
+	Theme Name: Engage Autism
+	Theme URI: http://engageautism.org
+	Description: A theme for Engage Autism. Based on the HTML5 Blank WordPress Theme and Bootstrap 3.
+	Version: 1.0
+	Author: MITTERA
+	Author URI: http://mittera.com
+*/
+
+// Variables/mixins/fonts. NOTE: Order is pretty important here.
+// Bootstrap uses our variables, and our mixins use bootstrap.
+@import "variables";
+@import "bootstrap/bootstrap";
+@import "mixins";
+
+// Fonts and global styles.
+@import "fonts";
+@import "font-awesome/font-awesome";
+@import "wpcore";
+@import "global";
+
+// Modules
+@import "searchform";
+@import "header";
+@import "mobile-header";
+@import "nav-squares";
+@import "panel";
+@import "lists";
+@import "footer";
+
+// Page-specific styles
+@import "front-page";
+@import "page";
+@import "pages/children-services";
+
+// Print (note: not fleshed out)
+@import "print";

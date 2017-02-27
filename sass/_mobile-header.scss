@@ -1,0 +1,179 @@
+// The mobile page header.
+
+header.mobile-header {
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 10;
+
+	// On the homepage, this sits over the content.
+	.home & {
+		position: absolute;
+	}	
+
+	.glyphicon-menu-hamburger {
+		position: absolute;
+		top: 50%;
+		right: 15px;
+		font-size: 22px;
+		cursor: pointer;
+		transform: translateY(-50%);
+		z-index: 10;
+
+	}
+
+	// The "visible contents" are visible by default, though on the homepage we tweak what all is visible.
+	// This contains the hamburger menu and a logo.
+	.visible-contents {
+		position: relative;
+		background: $grayMenu;
+		height: 75px;
+
+		.logo-img {
+			height: 45px; // width gets auto-set; I care more about a precise height here.
+		}
+
+		// On the homepage, no bg color and no logo.
+		.home & {
+			background: transparent;
+			.logo-img {
+				display: none;
+			}
+		}
+	}
+
+	// The "hidden contents" are hidden by default.
+	// When the menu is toggled, we animated it in via JS
+	.hidden-contents {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		background-color: $grayMenu;
+		display: none;
+
+		.logo-img {
+			max-width: 50vw;
+		}
+
+	}
+
+	.logo-container,
+	.form-container {
+		padding: 15px 30px;
+	}
+
+	// The search section. Some styles accounted for in the _searchform partial.
+	.search {
+		label {
+			display: block;
+		}
+		input {
+			width: calc( 100% - 30px );
+		}
+		.glyphicon {
+			font-size: 22px;
+			vertical-align: bottom;
+		}
+	}
+
+	// Some generic menu list styles.
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	li {
+		a {
+			padding: 10px 30px;
+			display: inline-block;
+			text-transform: uppercase;
+		}
+	}
+
+	// The primary nav. Gray background, brown text. Toggleable sections with submenus.
+	.primary-nav {
+	
+		a {
+			color: $brown;
+			font-size: 16px;
+			font-weight: 500;
+		}
+
+		li {
+			border-top: 2px solid #fff;
+
+			// Add an arrow to items with children. The click will be handled by JS.
+			&.menu-item-has-children {
+				position: relative;
+				&:after {
+					@extend .glyphicon;
+					@extend .glyphicon-chevron-right:before;
+					font-weight: 300;
+					position: absolute;
+					right: 30px;
+					top: 12px;
+					transition: all 250ms ease-in-out;
+				}
+
+				&.active:after {
+					transform: rotate(90deg);
+				}
+
+				.sub-menu {
+					max-height: 0px;
+					overflow: hidden;
+					transition: all 250ms ease-in-out;
+				}
+				&.active .sub-menu {
+					max-height: 500px;
+				}
+			}
+
+			ul {
+				margin-left: 30px;
+				li {
+					border-top: 1px solid #b3aca5;
+
+					&:first-child {
+						border-top: 0px none;
+						a {
+							padding-top: 0;
+						}
+					}
+
+					a {
+						padding: 8px 10px;
+						font-size: 13px;
+						font-weight: 700;
+					}
+				}
+			}
+		}
+	}
+
+	// The utility nav. Orange background, white text with some weird border requirements.
+	.utility-nav {
+		background: $orange;
+
+		a {
+			color: #fff;
+			font-size: 14px;
+			font-weight: 700;
+		}
+
+		ul {
+			border-top: 2px solid #fff;
+
+			li {
+				border-top: 1px solid #fff;
+
+				&:first-child {
+					border-top: 0px none;
+				}
+			}
+		}
+	}
+
+}

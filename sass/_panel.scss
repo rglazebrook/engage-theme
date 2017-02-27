@@ -1,0 +1,39 @@
+// Overriding bootstrap panels.
+// These panels are automatically generated for mobile out of our tabbed sections.
+
+.panel-group {
+	margin-left: -15px;
+	margin-right: -15px;
+
+	.panel {
+		border: 0px none;
+		box-shadow: none;
+
+		.panel-heading {
+			text-align: center;
+			padding: 0;
+			background-color: transparent;
+
+			a {
+				display: block;
+				background-color: $orange;
+				color: #fff;
+				padding: 10px 15px;
+				transition: all 250ms ease-in-out;
+				text-decoration: none;
+
+				&[aria-expanded=true] {
+					background-color: $green;
+				}
+			}
+		}
+
+		.panel-body {
+			padding: 15px 15px 0;
+		}
+
+		+ .panel {
+			margin-top: 2px;
+		}
+	}
+}
