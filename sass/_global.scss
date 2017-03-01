@@ -146,18 +146,22 @@ textarea.form-control {
 
 // Stripe form stuff.
 .sc-checkout-form {
-	@extend .form-horizontal;
+	
 }
 .sc-form-group {
-	@extend .form-group;
+	margin-bottom: 10px;
 
 	input,
 	select {
-		@extend .form-control;
 
 		display: inline-block;
 		width: auto;
 		margin-left: 10px;
+		padding: 6px 12px;
+		font-size: 1.4rem;
+		line-height: 2rem;
+		height: 34px;
+		border: 1px solid #ccc;
 	}
 }
 .sc-payment-btn {

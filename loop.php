@@ -1,31 +1,37 @@
-<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+<?php 
+	if (have_posts()): while (have_posts()) : the_post(); 
+	$hasThumb = has_post_thumbnail();
+?>
 
 	<!-- article -->
-	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<article id="post-<?php the_ID(); ?>" <?php post_class('loop-post'); ?>>
 
 		<!-- post thumbnail -->
-		<?php if ( has_post_thumbnail()) : // Check if thumbnail exists ?>
-			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-				<?php the_post_thumbnail(array(120,120)); // Declare pixel size you need inside the array ?>
-			</a>
+		<?php if ( $hasThumb ) : ?>
+			<div class="col-xs-2 col-sm-3">
+				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+					<?php the_post_thumbnail('square-medium'); ?>
+				</a>
+			</div>
 		<?php endif; ?>
 		<!-- /post thumbnail -->
+		
+		<div class="<?php echo $hasThumb ? 'col-xs-10 col-sm-9' : 'col-xs-12' ; ?>">
+			<!-- post title -->
+			<h2 class="link-orange">
+				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+			</h2>
+			<!-- /post title -->
 
-		<!-- post title -->
-		<h2>
-			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-		</h2>
-		<!-- /post title -->
+			<!-- post details -->
+			<div class="post-meta">
+				<span class="date"><?php the_time('F j, Y'); ?></span> - 
+				<span class="author"><?php _e( 'By', 'html5blank' ); ?> <?php the_author_posts_link(); ?></span>
+			</div>
+			<!-- /post details -->
 
-		<!-- post details -->
-		<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
-		<span class="author"><?php _e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></span>
-		<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
-		<!-- /post details -->
-
-		<?php html5wp_excerpt('html5wp_index'); // Build your custom callback length in functions.php ?>
-
-		<?php edit_post_link(); ?>
+			<?php html5wp_excerpt('html5wp_index'); // Build your custom callback length in functions.php ?>
+		</div>
 
 	</article>
 	<!-- /article -->
@@ -36,7 +42,8 @@
 
 	<!-- article -->
 	<article>
-		<h2><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
+		<h2 class="text-orange"><?php _e( 'Sorry, there&rsquo;s nothing here yet.', 'html5blank' ); ?></h2>
+		<p>Check back soon!</p>
 	</article>
 	<!-- /article -->
 

@@ -1,0 +1,38 @@
+// A post on the blog loop. Most of this is handled by classes, this is the extra.
+
+.loop-post {
+	overflow: hidden;
+	padding: 10px;
+	margin: 10px 0;
+	color: $brownGray;
+
+	@include bp(tablet) {
+		padding: 20px;
+		margin: 20px 0;
+	}
+
+	h2 {
+		margin-top: 0;
+		margin-bottom: 0.5em;
+	}
+
+	.post-meta,
+	p {
+		a {
+			color: $brownGray;
+		}
+	}
+
+	.post-meta {
+		margin-bottom: 0.75em;
+	}
+
+	.view-article {
+		text-transform: uppercase;
+		font-weight: 700;
+	}
+
+	+ .loop-post {
+		border-top: 2px solid $orange;
+	}
+}
