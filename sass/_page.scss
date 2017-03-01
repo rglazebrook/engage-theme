@@ -34,18 +34,18 @@
 	}
 }
 
+main.bottom-margin {
+	margin-bottom: 40px;
+
+	@include bp(tablet) {
+		margin-bottom: 75px;
+	}				
+}
+
 .page {
 
 	main {
 		overflow: hidden; // helping with some overflow-x problems.
-
-		&.bottom-margin {
-			margin-bottom: 40px;
-
-			@include bp(tablet) {
-				margin-bottom: 75px;
-			}			
-		}
 	}
 
 	.nav-squares {

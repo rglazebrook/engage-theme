@@ -2,13 +2,11 @@
 
 .loop-post {
 	overflow: hidden;
-	padding: 10px;
-	margin: 10px 0;
+	padding: 20px 10px;
 	color: $brownGray;
 
 	@include bp(tablet) {
-		padding: 20px;
-		margin: 20px 0;
+		padding: 40px 20px;
 	}
 
 	h2 {

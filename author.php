@@ -2,7 +2,7 @@
 
 	<main role="main">
 		<!-- section -->
-		<section>
+		<section class="container">
 
 		<?php if (have_posts()): the_post(); ?>
 
@@ -71,7 +71,5 @@
 		</section>
 		<!-- /section -->
 	</main>
-
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

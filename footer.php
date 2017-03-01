@@ -6,7 +6,7 @@
 			<!-- footer -->
 			<footer class="footer" role="contentinfo">
 
-				<?php if ( get_post_type() == 'page' ): ?>
+				<?php if ( get_post_type() == 'page' || is_home() ): ?>
 
 				<div class="footer-services">
 					<div class="container-fluid text-center">
