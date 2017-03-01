@@ -64,7 +64,7 @@ a {
 input,
 input.form-control,
 textarea.form-control {
-	border: 0px none !important;
+	// border: 0px none !important;
 	box-shadow: none !important;
 	outline: 1px solid rgba($green, 0.1);
 	transition: outline 250ms ease-in-out;
@@ -141,6 +141,32 @@ textarea.form-control {
 	&.btn-inverse {
 		color: #fff;
 		border-color: #fff;
+	}
+}
+
+// Stripe form stuff.
+.sc-checkout-form {
+	@extend .form-horizontal;
+}
+.sc-form-group {
+	@extend .form-group;
+
+	input,
+	select {
+		@extend .form-control;
+
+		display: inline-block;
+		width: auto;
+		margin-left: 10px;
+	}
+}
+.sc-payment-btn {
+	@extend .btn;
+	@extend .btn-primary;
+
+	span {
+		display: block;
+		line-height: 1;
 	}
 }
 
