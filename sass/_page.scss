@@ -2,7 +2,7 @@
 
 // The title area. Image above, title below on mobile, title over image (with various alignments) on tablet+.
 .page-title {
-	@include desktop-container-mobile-col-bg;
+	@include desktop-container-mobile-col-bg( $imageUrl: url(img/bg-footer.jpg) ); // This is a default image. Overridden often.
 	
 	margin-bottom: 40px;
 
